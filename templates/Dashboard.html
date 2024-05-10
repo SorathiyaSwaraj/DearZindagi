@@ -1,0 +1,108 @@
+{% extends 'home.html' %}
+
+{% block title%} Dashboard {% endblock %}
+
+{% block content %}
+    <style>
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            background-color: #ccc;
+            color: #333;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #ccc;
+        }
+
+        nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  
+  margin-right: 20px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+ul li a img {
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+a :hover {
+    color: blue;
+}
+
+ul li a :visited {
+    background-color: green;
+}
+
+.slogan {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+
+</style>
+
+    {% csrf_token %}
+    {% load static %}
+
+    <br>
+
+    <div class="slogan">
+        Make your life easy having gifts by Dear Zindagi 
+    </div>
+
+    {% if user.is_authenticated %}
+        
+    {% else %}
+        <div class="btn-container">
+            <a href="/signupForm_view" class="btn">New User</a>
+        </div>
+        <br>
+        <div class="btn-container">
+            <a href="/login_view" class="btn">Get Started</a>
+        </div>
+    {% endif %}
+    
+   <hr>
+
+    
+
+    <br>
+
+    <ul>
+        <li><a href="{% url 'page' 0 %}"><h2><img src="{% static 'insurance.png' %}" alt="Insurance_logo">Insurance Knowledge</h2></a></li>
+        <li><a href="{% url 'page' 11 %}"><h2><img src="{% static 'heartbeat.png' %}" alt="Heartbeat_Logo">Health and Fitness tips</h2></a></li>
+        <li><a href="{% url 'page' 21 %}"><h2><img src="{% static 'cryptocurrency.png' %}" alt="Cryptocurrency_Logo">Cryptocurrency</h2></a></li>
+    </ul>
+
+
+    <br>
+    <br>
+    <div class="btn-container">
+        <a href="{% url 'page' 0 %}" class="btn">Start reading</a>
+    </div>
+
+{% endblock %}

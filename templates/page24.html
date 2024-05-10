@@ -1,0 +1,305 @@
+{% extends 'home.html' %}
+
+{% block title%} Dashboard {% endblock %}
+
+{% block content %}
+
+    <head>
+        <title>Dear Zindagi</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+       
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'mycss.css' %}">
+        <style type="text/css">
+
+            .btn-container {
+                display: flex;
+                justify-content: center;
+            }
+            .btn {
+                padding: 10px 20px;
+                margin: 0 10px;
+                border: none;
+                background-color: blueviolet;
+                color: black;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                text-decoration: none;
+                font-size: x-large;
+            }
+            .btn:hover {
+                background-color: #ccc;
+            }
+
+            .header {
+                display: flex;
+                align-items: center;
+            }
+
+            .logo {
+                margin-right: 10px; /* Adjust spacing between logo and text */
+            }
+
+            .logo img{
+                width: 50px;
+                height: 50px;
+                vertical-align: middle;
+            }
+
+            p, li {
+                font-size:large;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- timmer -->
+        <br>
+        <b><div id="countdown" style="text-align: center; color: red; font-size: medium;"></div></b>
+    
+            <script>
+            window.onload = function() {
+                var countdownElement = document.getElementById('countdown');
+                var endButton = document.getElementById('endButton');
+                
+                // Set the countdown end date (in this example, 5 minutes from the page load)
+                var endDate = new Date();
+                endDate.setSeconds(endDate.getSeconds() + 5);
+            
+                // Update the countdown every second
+                var countdownInterval = setInterval(function() {
+                    var now = new Date().getTime();
+                    var distance = endDate - now;
+            
+                    // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+                    countdownElement.innerHTML = "Please wait ......" + seconds + "s";
+            
+                    // If the countdown is finished, clear the interval
+                    if (distance < 0) {
+                        clearInterval(countdownInterval);
+                        countdownElement.innerHTML = "Start reading and Scroll down to the end";
+                        endButton.style.display = "block";
+                    }
+                }, 1000);
+            };
+            </script>
+        <!-- two sided blog part starts -->
+        <div class="container-fluid ">
+            <div class="row ">
+                <!-- to get the space form left and right -->
+                <div class="col-xl-10  col-lg-10 col-md-12 col-11 mx-auto my-5">
+                    <div class="row gx-5 mx-sm-auto">
+                        <!-- left side of the blog  -->
+                        <div class="col-lg-8 col-md-11 col-11 mx-auto">
+                            <div class="row gy-5 ">
+                                <div class="col-12 card p-4 shadow blog_left__div">
+                                    <div class="d-flex justify-content-center align-items-center flex-column pt-3 pb-5 ">
+                                        <div class="header">
+                                            <span class="logo"><img src="{% static 'cryptocurrency.png' %}" alt="cryptocurrency_logo"></span>
+                                            <span class="text"><h1 style="display: inline-block;"> How can I buy cryptocurrency?</h1></span>
+                                        </div>
+                                    </div>
+                                    <figure class="right_side_img mb-5">
+                                        <img src="{% static 'page24.jpg' %}" alt="types of insurance" class="img-fluid shadow">
+                                    </figure>
+                                    <p>There are several ways to buy cryptocurrency, depending on your preferences and location. One common method is to use cryptocurrency exchanges, which are online platforms that facilitate the buying, selling, and trading of various cryptocurrencies. Popular exchanges include Coinbase, Binance, Kraken, and Gemini. To buy cryptocurrency on an exchange, you typically need to create an account, complete identity verification procedures (such as providing a government-issued ID), and fund your account using fiat currency (e.g., USD, EUR) or other cryptocurrencies. Alternatively, you can purchase cryptocurrency through peer-to-peer platforms like LocalBitcoins or through cryptocurrency ATMs, which allow you to buy cryptocurrencies with cash. It's essential to research and choose a reputable and secure platform for buying cryptocurrency and to consider factors such as fees, supported cryptocurrencies, and security measures before making a purchase. Additionally, storing your cryptocurrency securely in a digital wallet is crucial to protect your investment from theft or loss.</p>                                    
+                                    <div class="d-flex justify-content-between left_div_btns">
+                                        <div>
+                                            <button class="left_div__like" id="like_btn"><i class="fa fa-thumbs-up"></i>Like</button>
+                                        </div>
+                                        <div>
+                                            <button class="left_div__reply" onclick="reply('reply1')">Replies <badge class="bg-white text-dark p-2">1</badge></button>
+                                        </div>
+                                    </div>
+                                    <div class="replies" id="reply1">
+                                        <div class="d-flex justify-content-start flex-row align-items-center card reply_card py-3 ">
+                                            <div class=" reply_img mx-2 align-self-center ">
+                                                <img src="https://img.icons8.com/doodle/48/000000/user-male-skin-type-5.png" />
+                                            </div>
+                                            <div class="reply_text__left">
+                                                <p class="blog_title "> <span class="font-weight-bold"> Thapa, </span> Aug 12, 2020, 7:20 PM </p>
+                                                <p>Awesome, Bro I love your content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                
+                        <!--  *******************************************************
+            **********************************************************.
+            right side of the div
+            *******************************************************
+            **********************************************************
+            -->
+                        <div class="col-lg-3 col-md-7 col-11  justify-content-end m-lg-0 m-auto ">
+                            <div class="row gy-5 left_div__blog">
+                                <!-- about me -->
+                                <div class="col-12  about_me_div shadow">
+                                    <p>Swaraj Sorathiya</p>
+                                    <p>Sprading the joy to your lives as always</p>
+                                </div>
+                                <!-- popular post -->
+                                <div class=" popular_post ">
+                                    <div class="right_div__title py-4 pl-2 ">
+                                        <h2>Popular Posts</h2>
+                                    </div>
+                                    <div class="right_sub__div shadow">
+                                        <div class="row ">
+                                            <div class="col-3  popular_post__img1 py-2 pl-2">
+                                                <span class="logo"><img src="{% static 'insurance.png' %}" alt="Insurance_logo"></span>
+                                            </div>
+                                            <div class="col-9">
+                                                <h3>What types of insurance are available?</h3>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-3  popular_post__img2 py-2 pl-2">
+                                                <span class="logo"><img src="{% static 'heartbeat.png' %}" alt="heartbeat_logo"></span>
+                                            </div>
+                                            <div class="col-9">
+                                                <h3>What are some effective exercises for weight loss? </h3>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-3  popular_post__img3 py-2 pl-2">
+                                                <span class="logo"><img src="{% static 'cryptocurrency.png' %}" alt="cryptocurrency_logo"></span>
+                                            </div>
+                                            <div class="col-9">
+                                                <h3>What is cryptocurrency?</h3>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- advertise -->
+                                <!-- <div class=" right_div_post">
+                                    <div class="right_div__title py-4 pl-2 ">
+                                        <h2>Advertise</h2>
+                                    </div>
+                                    <div class="right_sub__div ">
+                                        <div class="adevetise_img bg-light shadow">
+                                            <p>Ads goes here</p>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- tags -->
+                                <div class=" right_div_post">
+                                    <div class="right_div__title py-4 pl-2 ">
+                                        <h2>Tags</h2>
+                                    </div>
+                                
+                                    <div class="tags_main right_sub__div">
+                                        <a href="{% url 'page' 0 %}" class="badge shadow text-capitalize"> <span class="logo"><img src="{% static 'insurance.png' %}" alt="Insurance_logo"></span> </a>
+                                        <a href="{% url 'page' 11 %}" class="badge shadow text-capitalize"> <span class="logo"><img src="{% static 'heartbeat.png' %}" alt="Insurance_logo"></span> </a>
+                                        <a href="{% url 'page' 21 %}" class="badge shadow text-capitalize"> <span class="logo"><img src="{% static 'cryptocurrency.png' %}" alt="Insurance_logo"></span> </a>
+                                    </div>
+                                </div>
+                                <!-- Follow Me -->
+                                <div class=" right_div_post">
+                                    <div class="right_div__title py-4 pl-2 ">
+                                        <h2>Follow Me</h2>
+                                    </div>
+                                    <div class="right_sub__div d-flex justify-content-around">
+                                        <a href="#"> <i class="fab fa-facebook-square fa-3x"></i></a>
+                                        <a href="#" target="_thapa"> <i class="fab fa-3x fa-instagram"></i></a>
+                                        <a href="#"> <i class="fab fa-3x fa-github-square"></i> </a>
+                                        <a href="#"> <i class="fab fa-3x fa-twitter-square"></i></a>
+                                        <a href="#"> <i class="fab fa-3x fa-youtube-square"></i> </a>
+                                        <a href="#"> <i class="fab fa-3x fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                                <!-- Subscribe -->
+                                <div class=" right_div_post">
+                                    <div class="right_div__title py-4 pl-2 ">
+                                        <h2>Subscribe</h2>
+                                    </div>
+                                    <div class="right_sub__div">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Enter your e-mail below and get notified on the latest blog posts.</label>
+                                                <input type="email" class="form-control mt-2" id="exampleFormControlInput1" placeholder="name@example.com">
+                                            </div>
+                                            <div class="col-12">
+                                                <button class="subs_btn d-block" type="submit">Subscribe</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- next button -->
+        <div class="btn-container">
+            <a href="{% url 'page' next_page_number %}" class="btn" id="endButton" style="display:none;">Next</a>
+        </div>
+
+        <footer>
+            <p class="text-center py-5 bg-light">Love your self and be happy with Dear Zindagi</p>
+        </footer>
+        <!-- Optional JavaScript -->
+        <!-- Popper.js first, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+        const like = document.getElementById('like_btn');
+        const singleClick = () => {
+            like.style.fontWeight = 'bold';
+            like.style.background = '#bbe1fa';
+            like.style.color = '#1b262c';
+            like.innerHTML = "✓ Liked";
+        }
+        const doubleClick = () => {
+            like.style.fontWeight = 'normal';
+            like.style.background = '#3282b8';
+            like.style.color = '#fff';
+            like.innerHTML = "Like";
+        }
+        var clickCount = 0;
+        like.addEventListener('click', function() {
+            clickCount++;
+            if (clickCount === 1) {
+                singleClickTimer = setTimeout(function() {
+                    clickCount = 0;
+                    singleClick();
+                }, 400);
+            } else if (clickCount === 2) {
+                clearTimeout(singleClickTimer);
+                clickCount = 0;
+                doubleClick();
+            }
+        }, false);
+        // show and hide the replies
+        const reply = (rep) => {
+            console.log('hi');
+            // debugger;
+            var res = document.getElementById(rep);
+            console.log(res);
+            if (res.className == "replies") {
+                res.className = "thapa_show";
+                res.style.WebkitTransition = 'all 0.3s ease';
+                // res.style.transition = 'all 0.3s ease';
+                // console.log(thapa_show);
+            } else if (res.className == 'thapa_show') {
+                // res.className = " ";
+                console.log('thapa show');
+                res.className = "replies";
+            }
+        }
+        </script>
+    </body>
+
+{% endblock %}
